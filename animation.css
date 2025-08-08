@@ -1,0 +1,28 @@
+.nav-bar a, .nav-bar ul li {
+    opacity: 0;
+    animation: slideRight 1.5s ease-in-out forwards;
+}
+@keyframes slideRight {
+    0%{
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.hero-img-animation {
+    opacity: 0;
+    animation: showUp 2s ease-in-out forwards;
+}
+@keyframes showUp {
+    0%{
+        opacity: 0;
+        transform: scale(0.2) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
