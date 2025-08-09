@@ -20,14 +20,18 @@
 
 /* html and bodystyle */
 html {
-    overflow-x: auto;
+    overflow-x: hidden;
     line-height: calc(1em + 0.5em);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 body {
-    font-family: "Jost", serif;
+    font-family: "Jost", sans-serif;
     background: var(--dark-clr);
     color: var(--text-clr);
     line-height: 1.3em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 header{
     width: 100%;
@@ -40,17 +44,19 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 10%;
+    gap: 1rem;
 }
 .nav-bar ul {
     display: flex;
     gap: 1rem;
     list-style: none;
     position: relative;
+    flex-wrap: wrap;
 }
 .logo {
     position: relative;
     font-size: 2.5rem;
-    font-weight: 7OO;
+    font-weight: 700;
     color: var(--text-clr);
 }
 .logo span {
@@ -115,11 +121,10 @@ header .nav-bar ul li a:hover::after{
     gap: 3rem;
 }
 .hero-img img {
-    height: 600px;
-    width: 600px;
-    min-width: 400px;
+    width: min(85vw, 520px);
+    height: auto;
+    max-width: 100%;
     filter: drop-shadow(0 0 60px var(--global-clr));
-    border-radius: 100px;
     object-fit: cover;
     border-radius: 300px;
 }
@@ -135,8 +140,6 @@ header .nav-bar ul li a:hover::after{
 }
 .hero-content h1{
     font-weight: 700;
-    display: flex;
-    gap: 100px;
 }
 .hero-content h2{
     font-weight: 600;
@@ -166,6 +169,7 @@ header .nav-bar ul li a:hover::after{
 .hero-btn {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 .hero-btn .btn {
     position: relative;
@@ -218,6 +222,9 @@ header .nav-bar ul li a:hover::after{
     min-width: 200px;
     border-right: 2px solid var(--light-text-clr) ;
 }
+.stats .stat:last-child {
+    border-right: none;
+}
 .stats .stat h2 {
     font-size: 3.5rem;
     font-weight: 600;
@@ -229,5 +236,56 @@ header .nav-bar ul li a:hover::after{
 }
 section {
     padding: 2% 10%;
+}
+
+/* Global responsive helpers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 3em 6%;
+    gap: 2rem;
+  }
+  .hero-content {
+    max-width: 60%;
+  }
+}
+
+/* Small screens / mobile */
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 0.75rem 6%;
+    flex-wrap: wrap;
+  }
+  .logo { font-size: 2rem; }
+  .nav-bar ul { justify-content: center; gap: 0.5rem; }
+  .nav-bar ul li a { font-size: 1rem; margin-left: 10px; }
+  .Cv { font-size: 1rem; padding: 10px; }
+
+  .hero-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    padding: 2em 6%;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content h2 { font-size: 1.2rem; }
+  .hero-container p { font-size: 1rem; margin: 1rem 0; }
+  .hero-btn { justify-content: center; }
+  .hero-btn .btn { width: 100%; max-width: 320px; font-size: 1.1rem; }
+
+  .stats { gap: 1rem; }
+  .stats .stat {
+    border-right: none;
+    border-bottom: 1px solid var(--light-text-clr);
+    padding-bottom: 1rem;
+  }
+  .stats .stat:last-child { border-bottom: none; }
+  section { padding: 6% 6%; }
 }
 
