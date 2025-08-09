@@ -26,3 +26,10 @@
         transform: scale(1) rotate(360deg);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-bar a, .nav-bar ul li, .hero-img-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+}
